@@ -1,0 +1,19 @@
+version: '3'
+services:
+  reactwithdocker:
+    container_name: react_docker_container
+    image: react_docker_image
+    build:
+      context: . # Use the current directory as the build context
+      dockerfile: Dockerfile # Use the Dockerfile in the current directory
+    ports:
+      - "3000:5173"
+    volumes:
+      - .:/reactwithdocker
+      - /reactwithdocker/node_modules
+      - /reactwithdocker/dist
+    command: npm run dev
+
+
+# docker compose build to build the image
+# docker compose up to run     
