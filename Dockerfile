@@ -1,8 +1,8 @@
 FROM node:latest
 
-COPY . /reactwithdocker
-
 WORKDIR /reactwithdocker
+
+COPY package* .
 
 RUN npm install
 
@@ -10,7 +10,9 @@ RUN npm install
 
 # RUN npm run build
 
-EXPOSE 5173
+# EXPOSE 5173
+
+COPY . .
 
 CMD [ "npm","run","dev"]
 
